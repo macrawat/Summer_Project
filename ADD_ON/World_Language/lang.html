@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo1">Click the button to get your city name:</p>
+<button onclick="getLocation2()">Hit Me!</button>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCeLzjWfDaqBze8j7qKJL17XH4ZsMjsTx0&sensor=true">
+</script>
+
+
+
+
+<!-- Begin Translate This button code. -->
+<!-- If you already have jQuery embeded in your page, remove the following line: -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+<!-- Translate This button: -->
+<div class="translate_this notranslate">
+	<a class="translate_this_drop" title="Translate" href="http://translation-cloud.com"><span class="translate_this_left_image">translator</span></a> 
+	<a class="translate_this_drop" title="Translate" href="http://translation-cloud.com">Translate</a>
+	<span class="translate_this_seperator"> | </span>
+	<a class="translate_this_drop" title="English" href="http://translation-cloud.com/languages/english/" rel="en"><span class="translate_this_image_english">English</span></a> 
+	<a class="translate_this_no_drop" title="Spanish" href="http://translation-cloud.com/languages/spanish/" rel="es"><span class="translate_this_image_spanish">Spanish</span></a> 
+	<a class="translate_this_no_drop" title="German" href="http://translation-cloud.com/languages/german/" rel="de"><span class="translate_this_image_german">German</span></a> 
+	<a class="translate_this_no_drop" title="Chinese" href="http://translation-cloud.com/languages/chinese/" rel="zh-CN"><span class="translate_this_image_chinese">translate Chinese</span></a>
+	<a class="translate_this_td_list" title="Hindi" href="http://translation-cloud.com/languages/hindi/" rel="hi"><span class="translate_this_image_hindi">Hindi</span></a>
+<script src="http://s1.translation-cloud.com/_2_0/javascript/e.js?translate_this_src=af"></script>
+<!-- End Translate This button code. -->
+
+
+
+
+
+
+
+<script>
+var x=document.getElementById("demo1");
+function getLocation2()
+{
+  $(document).ready(function() {
+
+  if(!navigator.geolocation) return;
+  
+  navigator.geolocation.getCurrentPosition(function(pos) {
+    geocoder = new google.maps.Geocoder();
+    var latlng = new google.maps.LatLng(pos.coords.latitude,pos.coords.longitude);
+    geocoder.geocode({'latLng': latlng}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        var result = results[0];
+        var city = "";
+        var state = "";
+        for(var i=0, len=result.address_components.length; i<len; i++) {
+          var ac = result.address_components[i];
+          if(ac.types.indexOf("locality") >= 0) city = ac.long_name;
+          if(ac.types.indexOf("administrative_area_level_1") >= 0) state = ac.long_name;
+        }
+        if(city != '' && state != '') {
+          $("#result").html("<p> Hello to you out there in "+city+", "+state+"! </p>");
+   
+  x.innerHTML="City: " + city +"<br>State: " + state;
+
+        }
+      } 
+    });
+  });
+})
+}
+</script>
+</body>
+</html>
