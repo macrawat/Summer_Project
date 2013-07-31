@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>
+    select your state
+  </title>
+  <link href="vendor/foundation-4/css/foundation.css" media="all" rel="stylesheet"
+  type="text/css" />
+  <link href="css/wiki-atlas.css" media="all" rel="stylesheet" type="text/css"
+  />
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+   <script src="vendor/foundation-4/js/vendor/custom.modernizr.js"></script>
+  <script src="js/jQuery.10.1.min.js"></script>
+    <script src="js/typeahead.js"></script>
+<style>
+.typeahead,
+.tt-query,
+.tt-hint {
+  width: 396px;
+  height: 30px;
+  padding: 8px 12px;
+  font-size: 24px;
+  line-height: 30px;
+  border: 2px solid #ccc;
+  -webkit-border-radius: 8px;
+     -moz-border-radius: 8px;
+          border-radius: 8px;
+  outline: none;
+}
+
+.typeahead {
+  background-color: #fff;
+}
+
+.typeahead:focus {
+  border: 2px solid #0097cf;
+}
+
+.tt-query {
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.tt-hint {
+  color: #999
+}
+
+.tt-dropdown-menu {
+  width: 422px;
+  margin-top: 12px;
+  padding: 8px 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  -webkit-border-radius: 8px;
+     -moz-border-radius: 8px;
+          border-radius: 8px;
+  -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+     -moz-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+          box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
+
+.tt-suggestion {
+  padding: 3px 20px;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.tt-suggestion.tt-is-under-cursor {
+  color: #fff;
+  background-color: #0097cf;
+
+}
+
+.tt-suggestion p {
+  margin: 0;
+}
+</style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="row">
+      <h3>The Agricultural Map of India</h3>
+    </div>
+
+<div class="row">
+<div class="large-4 columns">
+        <!-- form for graph-->
+<!--form class="row" name="mapform" method="post" action="../graphs/map.php"-->
+<label for="right-label" class="left inline">Try a language: </label>
+<input type="text" id="lang" placeholder="en">
+</br>
+<form class="row" name="mapform" method="post" action="../graphs/map.php">
+State name:  <div class="example-states .typeahead"><input class="typeahead" type="text" name="state"></div>
+Choose year:<select name="year">
+<option value="" selected>Select an year</option>        
+<option value="1998">1998</option>
+<option value="1999">1999</option>
+<option value="2000">2000</option>
+<option value="2001">2001</option>
+<option value="2002">2002</option>
+<option value="2003">2003</option>
+<option value="2004">2004</option>
+<option value="2005">2005</option>
+<option value="2006">2006</option>
+<option value="2007">2007</option>
+<option value="2008">2008</option>
+<option value="2009">2009</option>
+<option value="2010">2010</option>
+</select>
+Choose crop: <div class="example-crops"><input class="typeahead" type="text" placeholder="Crop Name" name="crop" id="crop">
+<button id="submit" type="submit">SUBMIT</button>
+</div>
+</div>        
+     
+
+<script>
+
+$('.example-crops .typeahead').typeahead({
+    name: 'Crops',
+local: [ "Apple",
+"Banana",
+"Bhindi(Ladies Finger)",
+"Bitter gourd",
+"Bottle gourd",
+"Brinjal",
+"Cauliflower",
+"Chilly Capsicum",
+"Colacasia",
+"Cucumbar",
+"French Beans (Frasbean)",
+"Green Chilly",
+"Lemon",
+"Litchi",
+"Mango",
+"Methi",
+"Mousambi",
+"Onion",
+"Peas Wet",
+"Pomegranate",
+"Potato",
+"Pumpkin",
+"Raddish",
+"Spinach",
+"Tomato",
+"Paddy(Dhan)",
+"Bengal Grams(Gram)",
+"Corriander seed",
+"Maize",
+"Soyabean",
+"Wheat",
+"Cabbage",
+"Coriander",
+"Cock",
+"Fish",
+"Capsicum",
+"Tinda",
+"Other Vegetable",
+"Round gourd",
+"Toria",
+"Pointed gourd (Parval)",
+"Rice",
+"Ridgeguard",
+"Sweet Pumpkin",
+"Bajra(Pearl Millet)",
+"Barley (Jau)",
+"Mustard",
+"Ghee",
+"Green ginger",
+"Gur(Jaggery)",
+"Mustard Oil",
+"Sunflower",
+"Red Grams",
+"Jack Fruit",
+"Maida Atta",
+"Wheat Atta",
+"Arhar (Tur)",
+"Castor Seed",
+"Cummin Seed(Jeera)",
+"Groundnut",
+"Jowar(Sorgham)",
+"Cotton",
+"Ground Nut Seed",
+"Methi Seeds",
+"Sesamum(Sesame,Gingelly,Til)",
+"Banana - Green",
+"Cowpea(Veg)",
+"Drumstick",
+"Elephant Yam (Suran)",
+"Gwar",
+"Indian Beans (Seam)",
+"Kartali (Kantola)",
+"Little gourd (Kundru)",
+"Peas cod",
+"Pegeon Pea (Arhar Fali)",
+"Surat Beans (Papadi)",
+"Pears",
+"Water Melon",
+"Sponge gourd",
+"Mango (Raw-Ripe)",
+"Cluster beans",
+"Lime",
+"Amaranthus",
+"Amphophalus",
+"Ashgourd",
+"Beetroot",
+"Carrot",
+"Papaya (Raw)",
+"Snakeguard",
+"Tapioca",
+"Arecanut(Betelnut/Supari)",
+"Black pepper",
+"Copra",
+"Galgal(Lemon)",
+"Coconut",
+"Coffee",
+"Ginger",
+"Pepper garbled",
+"Rubber",
+"Jamun",
+"Papaya",
+"Field Pea",
+"Leafy Vegetable",
+"Plum",
+"Yam (Ratalu)",
+"Black Grams (Urd Beans)",
+"Sugar",
+"Gingelly (Sesamum, Sesame, Til) ",
+"Turmeric",
+"Chili Red",
+"Linseed",
+"Peas(Dry)",
+"Masur Dal", 
+"Tamarind Fruit",
+"Groundnut (Split)",
+"Sunflower Seed",
+"Groundnut pods (raw)",
+"Orange",
+"Cashewnuts",
+"Dry Chillies",
+"Green Peas",
+"Yam",
+"Garlic",
+"Bull",
+"Cow",
+"Goat",
+"He Baffalo",
+"She Baffalo",
+"Sheep",
+"Cowpea (Lobia)(Asparagus)",
+"Green Grams (Moong)",
+"Ajwan",
+"Tamarind Seed",
+"Jute",
+"Green Gram Dal",
+"Squash(Chappal Kadoo)",
+"Beans",
+"Beaten Rice",
+"Betal Leaves",
+"Lak",
+"Other Forest Product",
+"Other Pulses",
+"Other Spices",
+"Big Gram",
+"Isabgul (Psyllium)",
+"Chikoos(Sapota)",
+"Onion Green",
+"Soanf",
+"Suva (Dill Seed)",
+"Horses Gram",
+"Cucumber (Long Melon)",
+"Grapes",
+"Guava",
+"Peach",
+"Other Fruits",
+"Seetapal",
+"Pine Apple",
+"Mashrooms",
+"Dalda",
+"Soji",
+"Lentil(Masur)",
+"Moath Dal",
+"Alasande Gram",
+"Avare Dal",
+"Chennangidal",
+"Navane",
+"Ragi (Finger Millet)",
+"Alsandikai",
+"Bunch Beans",
+"Green Avare (W)",
+"Karbuja",
+"Knool Khol",
+"Seemebadnekai",
+"Sweet Lime",
+"Thondekai",
+"Neem Seed",
+"Tender Coconut",
+"Safflower",
+"Marygold(Calcutta)",
+"Rose(Loose)",
+"Sweet Potato",
+"Soapnut",
+"Suvarna Gadde",
+"Ox",
+"Coconut Oil",
+"Gingelly Oil",
+"Mint(Pudina)",
+"Pepper ungarbled",
+"Tea",
+"Duster Beans",
+"Kabuli Chana(Chickpeas-White)",
+"Hippe Seed",
+"Jasmine",
+"Kakada",
+"Mataki",
+"Bay leaf (Tejpatta)",
+"Broomstick",
+"Musk Melon",
+"She Goat",
+"Egg",
+"Taramira",
+"Wool",
+"Tobacco",
+"T.V. Cumbu",
+"Varagu",
+"Niger Seed (Ramtil)",
+"Turmeric (raw)",
+"Hen",
+"White Pumpkin",
+"Mahua",
+"Lotus Sticks",
+"Dry Grapes",
+"Same/Savi",
+"Citrus Fruit",
+"Coconut Seed",
+"Nutmeg",
+"Turnip",
+"Hybrid Cumbu",
+"Thinai (Italian Millet)",
+"Balekai",
+"Gram Raw(Chholia)",
+"Millets",
+"Other Tubers" ]
+        
+});
+
+</script>
+
+
+
+<script>
+
+$('.example-states .typeahead').typeahead({
+    name: 'States',
+local: [ "ANDAMAN AND NICOBAR",
+"BIHAR",
+"MIZORAM",
+"DAMAN AND DIU",
+"DADRA AND NAGAR HAVELI",
+"DELHI",
+"NAGALAND",
+"WEST BENGAL",
+"HARYANA",
+"HIMACHAL PRADESH",
+"ASSAM",
+"UTTARAKHAND",
+"JHARKHAND",
+"JAMMU AND KASHMIR",
+"MADHYA PRADESH",
+"UTTAR PRADESH",
+"SIKKIM",
+"CHHATTISGARH",
+"CHANDIGARH",
+"GOA",
+"GUJARAT",
+"RAJASTHAN",
+"MAHARASHTRA",
+"TAMIL NADU",
+"PUDUCHERRY",
+"ANDHRA PRADESH",
+"TRIPURA",
+"ARUNACHAL PRADESH",
+"KARNATAKA",
+"PUNJAB",
+"MEGHALAYA",
+"MANIPUR",
+"ODISHA",
+"ORISSA",
+"KERALA" ]
+        
+     });
+
+</script>
+      <div class="large-8 columns" id="map"><div class="row" id="map-overlay">
+       </div></div>
+
+    </div>
+  </div>
+</div>
+
+</div>
+
+<script src="vendor/jquery.js"></script>
+<script src="vendor/foundation-4/js/foundation.min.js"></script>
+<script src="vendor/foundation-4/js/foundation/foundation.dropdown.js"></script>
+<script src="vendor/d3/d3.v3.min.js" charset="utf-8"></script>
+<script src="vendor/d3/topojson.js"></script>
+
+<script>
+$(document).ready(function() {
+  $(document).foundation(); 
+
+//Query wikidata to update language 0.5s after typing a language code
+var timerid;
+jQuery("#lang").keyup(function() {
+  clearTimeout(timerid);
+  timerid = setTimeout(function() { 
+    lang = $("#lang").val();
+    wd("labels",lang);
+    $("#lang").addClass("disabled");
+  }, 500);
+});
+});
+
+<!-- Check for Zepto support, load jQuery if necessary -->
+document.write('<script src=vendor/foundation-4/js/vendor/'
+  + ('__proto__' in {} ? 'zepto' : 'jquery')
+  + '.js><\/script>');
+
+//Load the map data
+var width = 500,
+height = 600,
+centered;
+ 
+var projection = d3.geo.albers()
+.scale(50)
+.translate([width / 2, height / 2]);
+ 
+var projection = d3.geo.mercator()
+.center([82.7,23])
+.scale(6000)
+.translate([width / 2, height / 2]);
+ 
+var path = d3.geo.path()
+.projection(projection);
+ 
+var svg = d3.select("#map").append("svg")
+.attr("width", width)
+.attr("height", height);
+
+
+d3.json("img/indiamapjk.json", function(error, india) {
+
+  var indiamap=topojson.feature(india, india.objects.indiamap).features;
+
+
+   //Change map language by taking a user input
+  changeMapLanguage=function(){
+
+  };
+    //return wikidata key from shape
+    wikidata=function(d){
+      return d.properties.wiki;
+    };
+    //add wikidata id to data attribute from existing labels
+    wdGet=function(lang){
+
+    };
+    //Returns a label for a wikidata id and language code
+    wdLabel=function(q,lang){
+      $.ajax({
+        dataType: "json",
+        url: "http://www.wikidata.org/w/api.php?action=wbgetentities&sites=enwiki&ids="+q+"&languages="+lang+"&props=labels&format=json&callback=?" ,
+      }).done(function ( data) {
+        for(var q in data.entities);
+          return data.entities[q].labels[lang].value;
+      });
+
+    };
+    
+//Change map language
+wd= function(props,lang){
+   
+  $("text[wiki], #map-overlay [wiki]").each(function(){
+    q=this.getAttribute("wiki");
+    $.ajax({
+      dataType: "json",
+      url: "http://www.wikidata.org/w/api.php?action=wbgetentities&ids="+q+"&languages="+lang+"&props="+props+"&format=json&callback=?" ,
+    }).done(function ( data) {
+      for (var q in data.entities)
+        label=data.entities[q].labels[lang].value;
+    //if(props=="labels")
+    $("svg text[wiki='"+q+"']")[0].textContent=label;
+    //console.log(label);
+    //console.log($("#map-overlay [wiki]"));
+
+  });
+  });
+   
+};
+    //focus state
+    clickState=function(d){
+      $("table tbody tr").slideUp();
+      var stateName=$("text[wiki='"+wikidata(d)+"']")[0].textContent;
+      $("tbody tr a:contains('"+stateName+"')").parent().parent().slideDown();
+      d3.selectAll("svg text").classed("focus",false);
+      d3.selectAll("svg path").classed("focus",false);
+      d3.selectAll("[wiki='"+wikidata(d)+"']").classed("focus",true);
+      document.mapform.state.value= stateName;
+          };
+     
+     
+//create state paths
+svg.selectAll(".subunit")
+.data(topojson.feature(india, india.objects.indiamap).features)
+.enter().append("path")
+.attr("wiki", function(d) { return wikidata(d); })
+.attr("d", path)
+  //-interactions
+  //-click path navigator
+  .on("click", clickState)
+  .on("mouseover", function(d,i){
+    d3.selectAll("path").classed("active",false);
+    d3.selectAll("text[wiki='"+wikidata(d)+"']").classed("active",true);
+    d3.select("text[wiki='"+wikidata(d)+"']").transition().styleTween("font-size", function() { return d3.interpolate("100%", "150%"); });
+  })
+  .on("mouseout", function(d,i){
+    d3.selectAll("text").classed("active",false);
+    d3.select("text[wiki='"+wikidata(d)+"']").transition().styleTween("font-size", function() { return d3.interpolate("150%", "100%"); });
+  });
+   
+//text labels: create for all states
+svg.selectAll("text")
+.data(topojson.feature(india, india.objects.indiamap).features)
+.enter()
+.append("text")
+.attr("transform", function(d) { return "translate(" + path.centroid(d) + ")"; })
+.attr("class", function(d) { return d.properties.ENGTYPE_1})
+.attr("wiki", function(d) { return wikidata(d);})
+.text(function(d) { 
+})
+  //-interactions
+  //-click text map navigator
+  .on("click", clickState)
+  //-highlight corresponding state path
+  .on("mouseover", function(d,i){
+   d3.selectAll("text").classed("active",false);
+   d3.selectAll("path[wiki='"+wikidata(d)+"']").classed("active",true);
+ })
+  //-dim all state paths
+  .on("mouseout", function(d,i){
+    d3.selectAll("path[wiki='"+wikidata(d)+"']").classed("active",false);
+  });
+
+  wd("labels","en");
+//Legend teaser
+$('.subheader span').hover(
+  function(){$('svg .'+$(this).attr('class')).attr('class','active')},
+  function(){$('svg .active').removeAttr('class','active')}
+  );
+});
+
+//function pass_value(){
+//document.mapform.state.value=state;
+//document.mapform.year.value=year;
+//document.mapform.crop.value=crop;
+//$.post('php/map.php', {state: state, year: year, crop: crop}, function(data){
+//      alert(data);
+      //$('#crop_image').append(data);
+//      });
+//}//function ends here
+    
+
+</script>
+
+<small>Powered by d3 and wikidata <a href="https://github.com/4thmain/4thmain.github.io/tree/master/projects/hacks">(source)</a></small>
+</body>
+
+</html>

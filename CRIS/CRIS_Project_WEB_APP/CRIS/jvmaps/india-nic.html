@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>India Map</title>
+<link rel="stylesheet" media="all" href="lib/jquery-jvectormap.css" />
+<link rel="stylesheet" media="all" href="plugins/noUiSlider/nouislider.space.css" />
+<link rel="stylesheet" media="all" href="style.css" />
+<script src="jquery.js"></script>
+
+<!--<script src="assets/jquery-1.8.2.js"></script>-->
+<script src="lib/jquery-jvectormap.js"></script>
+<script src="lib/jquery-mousewheel.js"></script>
+
+<script src="lib/jvectormap.js"></script>
+
+<script src="lib/abstract-element.js"></script>
+<script src="lib/abstract-canvas-element.js"></script>
+<script src="lib/abstract-shape-element.js"></script>
+
+<script src="lib/svg-element.js"></script>
+<script src="lib/svg-group-element.js"></script>
+<script src="lib/svg-canvas-element.js"></script>
+<script src="lib/svg-shape-element.js"></script>
+<script src="lib/svg-path-element.js"></script>
+<script src="lib/svg-circle-element.js"></script>
+
+<script src="lib/vml-element.js"></script>
+<script src="lib/vml-group-element.js"></script>
+<script src="lib/vml-canvas-element.js"></script>
+<script src="lib/vml-shape-element.js"></script>
+<script src="lib/vml-path-element.js"></script>
+<script src="lib/vml-circle-element.js"></script>
+
+<script src="lib/vector-canvas.js"></script>
+<script src="lib/simple-scale.js"></script>
+<script src="lib/numeric-scale.js"></script>
+<script src="lib/ordinal-scale.js"></script>
+<script src="lib/color-scale.js"></script>
+<script src="lib/data-series.js"></script>
+<script src="lib/proj.js"></script>
+<script src="lib/world-map.js"></script>
+
+<script src="assets/jquery-jvectormap-in-nic-en.js"></script>
+<script src="assets/jquery.csv.js"></script>
+<script src="plugins/noUiSlider/jquery.nouislider.min.js"></script>
+<script src="data/datanew.js"></script>
+<script src="assets/typeahead.js"></script>
+<style>
+.typeahead,
+.tt-query,
+.tt-hint {
+  width: 150px;
+  height: 20px;
+  padding: 5px 12px;
+  font-size: 15px;
+  line-height: 30px;
+  border: 2px solid #ccc;
+  -webkit-border-radius: 8px;
+     -moz-border-radius: 8px;
+          border-radius: 8px;
+  outline: none;
+}
+
+.typeahead {
+  background-color: #fff;
+}
+
+.typeahead:focus {
+  border: 2px solid #0097cf;
+}
+
+.tt-query {
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.tt-hint {
+  color: #999
+}
+
+.tt-dropdown-menu {
+  width: 422px;
+  margin-top: 12px;
+  padding: 8px 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  -webkit-border-radius: 8px;
+     -moz-border-radius: 8px;
+          border-radius: 8px;
+  -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+     -moz-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+          box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
+
+.tt-suggestion {
+  padding: 3px 20px;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.tt-suggestion.tt-is-under-cursor {
+  color: #fff;
+  background-color: #0097cf;
+
+}
+
+.tt-suggestion p {
+  margin: 0;
+}
+</style>
+</head>
+<body>
+<center><h2>The Agricultural Map of India</h2>
+<p>Scale: Quintal/Hectare</p></center>
+<!--State select-->
+<form name="mapform">
+Choose crop: </br></br><div class="example-crops"><input class="typeahead" type="text" placeholder="Crop Name" name="crop" id="crop">
+</div></br>
+<input id="submit" type="button" value="Submit">
+</form>
+<script>
+
+$('.example-crops .typeahead').typeahead({
+    name: 'Crops',
+local: [ "Arhar",
+"Bajra",
+"Castor seed",
+"Cotton(lint)",
+"Dry chillies",
+"Gram",
+"Groundnut",
+"Horse-gram",
+"Jowar",
+"Maize",
+"Moong",
+"Other Rabi pulses",
+"Other Kharif pulses",
+"Rice",
+"Sesamum",
+"Sugarcane",
+"Sunflower",
+"Tobacco",
+"Urad",
+"Wheat",
+"Korra",
+"Ragi",
+"Samai",
+"Small millets",
+"Varagu",
+"Mesta",
+"Dry ginger",
+"Potato",
+"Rapeseed &Mustard",
+"Soyabean",
+"Turmeric",
+"Arecanut",
+"Coconut ('000 Nuts)",
+"Jute",
+"Linseed",
+"Niger seed",
+"Onion",
+"Sweet potato",
+"Tapioca",
+"Banana",
+"Barley",
+"Coriander",
+"Garlic",
+"Sannhamp",
+"Safflower",
+"Masoor",
+"Moth",
+"Other Cereals & Millets",
+"Oilseeds total",
+"Pulses total",
+"Peas & beans (Pulses)",
+"Cardamom",
+"Black pepper",
+"Cashewnut",
+"Total foodgrain",
+"other oilseeds",
+"Khesari",
+"Cond-spcs other",
+"Tea",
+"Guar seed",
+"Jute & mesta",
+"other misc. pulses",
+"Kapas",
+"Rubber",
+"Coffee",
+"Beans & Mutter(Vegetable)",
+"Bhindi",
+"Bottle Gourd",
+"Brinjal",
+"Cabbage",
+"Citrus Fruit",
+"Cucumber",
+"Mango",
+"Orange",
+"other fibres",
+"Other Fresh Fruits",
+"Other Vegetables",
+"Pome Fruit",
+"Tomato",
+"Grapes",
+"Papaya",
+"Peas (vegetable)",
+"Pineapple",
+"Turnip",
+"Carrot",
+"Redish",
+"Arcanut (Processed)",
+"Atcanut (Raw)",
+"Cashewnut Processed",
+"Cashewnut Raw",
+"Bitter Gourd",
+"Drum Stick",
+"Jack Fruit",
+"Snak Guard",
+"Cauliflower",
+"Water Melon",
+"Ash Gourd",
+"Beet Root",
+"Lab-Lab",
+"Other Citrus Fruit",
+"Pome Granet",
+"Ribed Guard",
+"Yam",
+"Pump Kin",
+"Apple",
+"Peach",
+"Pear",
+"Plums",
+"Ber",
+"Litchi",
+"Other Dry Fruit",
+ ]
+        
+     });
+
+</script>
+
+<!---State select ends-->
+	<div id="india-map" style="width: 100%; height: 400px; margin: 0 auto;"></div>
+	<div class="legend"></div>
+	<span class="sliderdata"></span>
+	<div id="mapdata-slider" class="noUiSlider"></div>
+</body>
+</html>

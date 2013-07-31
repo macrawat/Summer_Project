@@ -1,0 +1,832 @@
+    <!DOCTYPE HTML>
+    <html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <title>Agricultural Information System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Styles -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel='stylesheet' id='prettyphoto-css'  href="css/prettyPhoto.css" type='text/css' media='all'>
+    <link href="css/fontello.css" type="text/css" rel="stylesheet">
+    <!--[if lt IE 7]>
+            <link href="css/fontello-ie7.css" type="text/css" rel="stylesheet">  
+        <![endif]-->
+    <!-- Google Web fonts -->
+   <link href='http://fonts.googleapis.com/css?family=Quattrocento:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Patua+One' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <style>
+    body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+    }
+    </style>
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="img/favicon.ico">
+   <!--Include Reverse Geolocation-->
+	<!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCeLzjWfDaqBze8j7qKJL17XH4ZsMjsTx0&sensor=true"></script>
+   <script type="text/javascript" src="js/script.js"></script>   -->
+ <!-- JQuery -->
+   <script type="text/javascript" src="js/jquery.js"></script>
+    <!-- Load ScrollTo -->
+    <script type="text/javascript" src="js/jquery.scrollTo-1.4.2-min.js"></script>
+    <!-- Load LocalScroll -->
+    <script type="text/javascript" src="js/jquery.localscroll-1.2.7-min.js"></script>
+    <!-- prettyPhoto Initialization -->
+    <script type="text/javascript" charset="utf-8">
+          $(document).ready(function(){
+            $("a[rel^='prettyPhoto']").prettyPhoto();
+          });
+        </script>
+  <script>
+    $(document).ready(function sub(){
+			var state=document.getElementById('state').value;
+			var city=document.getElementById('city').value;
+			var pincode==document.getElementById('pincode').value;
+		alert(state);
+		$.get('php/test_basic.php', {state: state, city: city}, function(data){
+			alert(data);
+			$('.mask2').append(data);
+			});
+
+                    });
+
+
+
+
+
+
+</script>
+    </head>
+    <body>
+    <!--******************** NAVBAR ********************-->
+    <div class="navbar-wrapper">
+      <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <!-- Responsive Navbar Part 1: Button for triggering responsive navbar (not covered in tutorial). Include responsive CSS to utilize. -->
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a>
+            <h1 class="brand"><a href="#top">Agricultural Information System</a></h1>
+            <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
+            <nav class="pull-right nav-collapse collapse">
+              <ul id="menu-main" class="nav">
+                <li><a title="portfolio" href="#portfolio">Crops</a></li>
+                <li><a title="services" href="#services">Map</a></li>
+                <li><a title="news" href="#news">Visualize</a></li>
+                <li><a title="team" href="#team">Team</a></li>
+                <li><a title="contact" href="#contact">Contact Us</a></li>
+              </ul>
+            </nav>
+          </div>
+          <!-- /.container -->
+        </div>
+        <!-- /.navbar-inner -->
+      </div>
+      <!-- /.navbar -->
+    </div>
+    <!-- /.navbar-wrapper -->
+    <div id="top"></div>
+    <!-- ******************** HeaderWrap ********************-->
+    <div id="headerwrap">
+      <header class="clearfix">
+        <h1><span>We</span> make Agriculture in India easy!</h1>
+        <div class="container">
+          <div class="row">
+            
+              <h2>Your are at</h2>
+              <div id="loc">
+<form name="myform" id="myform"><center><input type="text" name="state" placeholder="State" id="city" class="cform-text" size="20" title="state"></center></br><center><input type="text" name="city" placeholder="City" id="city" class="cform-text" size="20" title="city"></center>
+
+<center><h3>OR</h3></center>
+<center><input type="text" name="pincode" placeholder="Pincode" id="pincode" class="cform-text" size="20" title="pincode"></center></br>
+              <input type="submit" value="Submit!" class="cform-submit" onClick="sub();">
+</form>
+		</div>            
+
+          </div>
+          <div class="row">
+            <div>
+              <ul class="icon">
+                <li><a href="#" target="_blank"><i class="icon-pinterest-circled"></i></a></li>
+                <li><a href="#" target="_blank"><i class="icon-facebook-circled"></i></a></li>
+                <li><a href="#" target="_blank"><i class="icon-twitter-circled"></i></a></li>
+                <li><a href="#" target="_blank"><i class="icon-gplus-circled"></i></a></li>
+                <li><a href="#" target="_blank"><i class="icon-skype-circled"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </header>
+    </div>
+    <!--******************** Feature ********************-->
+    <div class="scrollblock">
+      <section id="feature">
+        <div class="container">
+          <div class="row">
+            <div>
+              <article>
+                <p>"We work to revolutionize the agricultural industry of India,</p>
+                <p>with an aim to increase productivity and efficiency." </p>
+                </article>
+            </div>
+            <!-- ./span12 -->
+          </div>
+          <!-- .row -->
+        </div>
+        <!-- ./container -->
+      </section>
+    </div>
+    <hr>
+    <!--******************** Portfolio Section ********************-->
+    <section id="portfolio" class="single-page scrollblock">
+      <div class="container">
+        <div class="align"><i class="icon-desktop-circled"></i></div>
+        <h1 id="folio-headline">Crops</h1>
+        
+      </div>
+      <!-- /.container -->
+    </section>
+    <hr>
+    <!--******************** Services Section ********************-->
+    <section id="services" class="single-page scrollblock">
+      <div class="container">
+        <div class="align"><i class="icon-cog-circled"></i></div>
+        <h1>Agricultural Map Of India</h1>
+        <!-- MAP -->
+        <div>
+          <link href="vendor/foundation-4/css/foundation.css" media="all" rel="stylesheet"
+  type="text/css" />
+  <link href="css/wiki-atlas.css" media="all" rel="stylesheet" type="text/css"
+  />
+  <!--<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>-->
+   <script src="vendor/foundation-4/js/vendor/custom.modernizr.js"></script>
+  <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>-->
+    <script src="js/typeahead.js"></script>
+<style>
+.typeahead,
+.tt-query,
+.tt-hint {
+  width: 396px;
+  height: 30px;
+  padding: 8px 12px;
+  font-size: 24px;
+  line-height: 30px;
+  border: 2px solid #ccc;
+  -webkit-border-radius: 8px;
+     -moz-border-radius: 8px;
+          border-radius: 8px;
+  outline: none;
+}
+
+.typeahead {
+  background-color: #fff;
+}
+
+.typeahead:focus {
+  border: 2px solid #0097cf;
+}
+
+.tt-query {
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.tt-hint {
+  color: #999
+}
+
+.tt-dropdown-menu {
+  width: 422px;
+  margin-top: 12px;
+  padding: 8px 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  -webkit-border-radius: 8px;
+     -moz-border-radius: 8px;
+          border-radius: 8px;
+  -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+     -moz-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+          box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
+
+.tt-suggestion {
+  padding: 3px 20px;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.tt-suggestion.tt-is-under-cursor {
+  color: #fff;
+  background-color: #0097cf;
+
+}
+
+.tt-suggestion p {
+  margin: 0;
+}
+</style>
+
+  <div class="container">
+    <div class="row">
+     <!-- <h3>The Agricultural Map of India</h3>-->
+    </div>
+
+    <div class="row">
+      <div class="large-4 columns">
+        <form class="row" name="myform">
+          <label for="right-label" class="left inline">Try a language: </label>
+          <input type="text" id="lang" placeholder="en">
+        </br>
+        State name:  <div class="example-crops .typeahead"><input class="typeahead" type="text" name="State"></div>
+        Choose year:<select name="year">
+<option value="1998" selected>1998</option>
+<option value="1999">1999</option>
+<option value="2000">2000</option>
+<option value="2001">2001</option>
+<option value="2002">2002</option>
+<option value="2003">2003</option>
+<option value="2004">2004</option>
+<option value="2005">2005</option>
+<option value="2006">2006</option>
+<option value="2007">2007</option>
+<option value="2008">2008</option>
+<option value="2009">2009</option>
+<option value="2010">2010</option>
+</select>
+
+Choose crop: <div class="example-crops"><input class="typeahead" type="text" placeholder="Crop Name" name="Crop" id="Crop">
+ </div>
+ <button id="submit" type="submit">SUBMIT</button>
+        </form>
+        </div>
+        
+<script>
+
+</script>       
+
+<script>
+
+$('.example-crops .typeahead').typeahead({
+    name: 'Crops',
+local: [ "Apple",
+"Banana",
+"Bhindi(Ladies Finger)",
+"Bitter gourd",
+"Bottle gourd",
+"Brinjal",
+"Cauliflower",
+"Chilly Capsicum",
+"Colacasia",
+"Cucumbar",
+"French Beans (Frasbean)",
+"Green Chilly",
+"Lemon",
+"Litchi",
+"Mango",
+"Methi",
+"Mousambi",
+"Onion",
+"Peas Wet",
+"Pomegranate",
+"Potato",
+"Pumpkin",
+"Raddish",
+"Spinach",
+"Tomato",
+"Paddy(Dhan)",
+"Bengal Grams(Gram)",
+"Corriander seed",
+"Maize",
+"Soyabean",
+"Wheat",
+"Cabbage",
+"Coriander",
+"Cock",
+"Fish",
+"Capsicum",
+"Tinda",
+"Other Vegetable",
+"Round gourd",
+"Toria",
+"Pointed gourd (Parval)",
+"Rice",
+"Ridgeguard",
+"Sweet Pumpkin",
+"Bajra(Pearl Millet)",
+"Barley (Jau)",
+"Mustard",
+"Ghee",
+"Green ginger",
+"Gur(Jaggery)",
+"Mustard Oil",
+"Sunflower",
+"Red Grams",
+"Jack Fruit",
+"Maida Atta",
+"Wheat Atta",
+"Arhar (Tur)",
+"Castor Seed",
+"Cummin Seed(Jeera)",
+"Groundnut",
+"Jowar(Sorgham)",
+"Cotton",
+"Ground Nut Seed",
+"Methi Seeds",
+"Sesamum(Sesame,Gingelly,Til)",
+"Banana - Green",
+"Cowpea(Veg)",
+"Drumstick",
+"Elephant Yam (Suran)",
+"Gwar",
+"Indian Beans (Seam)",
+"Kartali (Kantola)",
+"Little gourd (Kundru)",
+"Peas cod",
+"Pegeon Pea (Arhar Fali)",
+"Surat Beans (Papadi)",
+"Pears",
+"Water Melon",
+"Sponge gourd",
+"Mango (Raw-Ripe)",
+"Cluster beans",
+"Lime",
+"Amaranthus",
+"Amphophalus",
+"Ashgourd",
+"Beetroot",
+"Carrot",
+"Papaya (Raw)",
+"Snakeguard",
+"Tapioca",
+"Arecanut(Betelnut/Supari)",
+"Black pepper",
+"Copra",
+"Galgal(Lemon)",
+"Coconut",
+"Coffee",
+"Ginger",
+"Pepper garbled",
+"Rubber",
+"Jamun",
+"Papaya",
+"Field Pea",
+"Leafy Vegetable",
+"Plum",
+"Yam (Ratalu)",
+"Black Grams (Urd Beans)",
+"Sugar",
+"Gingelly (Sesamum, Sesame, Til) ",
+"Turmeric",
+"Chili Red",
+"Linseed",
+"Peas(Dry)",
+"Masur Dal", 
+"Tamarind Fruit",
+"Groundnut (Split)",
+"Sunflower Seed",
+"Groundnut pods (raw)",
+"Orange",
+"Cashewnuts",
+"Dry Chillies",
+"Green Peas",
+"Yam",
+"Garlic",
+"Bull",
+"Cow",
+"Goat",
+"He Baffalo",
+"She Baffalo",
+"Sheep",
+"Cowpea (Lobia)(Asparagus)",
+"Green Grams (Moong)",
+"Ajwan",
+"Tamarind Seed",
+"Jute",
+"Green Gram Dal",
+"Squash(Chappal Kadoo)",
+"Beans",
+"Beaten Rice",
+"Betal Leaves",
+"Lak",
+"Other Forest Product",
+"Other Pulses",
+"Other Spices",
+"Big Gram",
+"Isabgul (Psyllium)",
+"Chikoos(Sapota)",
+"Onion Green",
+"Soanf",
+"Suva (Dill Seed)",
+"Horses Gram",
+"Cucumber (Long Melon)",
+"Grapes",
+"Guava",
+"Peach",
+"Other Fruits",
+"Seetapal",
+"Pine Apple",
+"Mashrooms",
+"Dalda",
+"Soji",
+"Lentil(Masur)",
+"Moath Dal",
+"Alasande Gram",
+"Avare Dal",
+"Chennangidal",
+"Navane",
+"Ragi (Finger Millet)",
+"Alsandikai",
+"Bunch Beans",
+"Green Avare (W)",
+"Karbuja",
+"Knool Khol",
+"Seemebadnekai",
+"Sweet Lime",
+"Thondekai",
+"Neem Seed",
+"Tender Coconut",
+"Safflower",
+"Marygold(Calcutta)",
+"Rose(Loose)",
+"Sweet Potato",
+"Soapnut",
+"Suvarna Gadde",
+"Ox",
+"Coconut Oil",
+"Gingelly Oil",
+"Mint(Pudina)",
+"Pepper ungarbled",
+"Tea",
+"Duster Beans",
+"Kabuli Chana(Chickpeas-White)",
+"Hippe Seed",
+"Jasmine",
+"Kakada",
+"Mataki",
+"Bay leaf (Tejpatta)",
+"Broomstick",
+"Musk Melon",
+"She Goat",
+"Egg",
+"Taramira",
+"Wool",
+"Tobacco",
+"T.V. Cumbu",
+"Varagu",
+"Niger Seed (Ramtil)",
+"Turmeric (raw)",
+"Hen",
+"White Pumpkin",
+"Mahua",
+"Lotus Sticks",
+"Dry Grapes",
+"Same/Savi",
+"Citrus Fruit",
+"Coconut Seed",
+"Nutmeg",
+"Turnip",
+"Hybrid Cumbu",
+"Thinai (Italian Millet)",
+"Balekai",
+"Gram Raw(Chholia)",
+"Millets",
+"Other Tubers" ]
+        
+     });
+
+</script>
+      <div class="large-8 columns" id="map"><div class="row" id="map-overlay">
+       </div></div>
+
+    </div>
+  </div>
+</div>
+
+</div>
+
+<script src="vendor/jquery.js">
+
+</script>
+<script src="vendor/foundation-4/js/foundation.min.js"></script>
+
+<script src="vendor/foundation-4/js/foundation/foundation.dropdown.js"></script>
+<script src="vendor/d3/d3.v3.min.js" charset="utf-8"></script>
+<script src="vendor/d3/topojson.js"></script>
+<script>
+
+$(document).ready(function() {
+  $(document).foundation(); 
+
+//Query wikidata to update language 0.5s after typing a language code
+var timerid;
+jQuery("#lang").keyup(function() {
+  clearTimeout(timerid);
+  timerid = setTimeout(function() { 
+    lang = $("#lang").val();
+    wd("labels",lang);
+    $("#lang").addClass("disabled");
+  }, 500);
+});
+
+
+
+});
+
+<!-- Check for Zepto support, load jQuery if necessary -->
+document.write('<script src=vendor/foundation-4/js/vendor/'
+  + ('__proto__' in {} ? 'zepto' : 'jquery')
+  + '.js><\/script>');
+
+//Load the map data
+var width = 500,
+height = 600,
+centered;
+ 
+var projection = d3.geo.albers()
+.scale(50)
+.translate([width / 2, height / 2]);
+ 
+var projection = d3.geo.mercator()
+.center([82.7,23])
+.scale(6000)
+.translate([width / 2, height / 2]);
+ 
+var path = d3.geo.path()
+.projection(projection);
+ 
+var svg = d3.select("#map").append("svg")
+.attr("width", width)
+.attr("height", height);
+
+
+d3.json("img/indiamapjk.json", function(error, india) {
+
+  var indiamap=topojson.feature(india, india.objects.indiamap).features;
+
+
+   //Change map language by taking a user input
+  changeMapLanguage=function(){
+
+  };
+    //return wikidata key from shape
+    wikidata=function(d){
+      return d.properties.wiki;
+    };
+    //add wikidata id to data attribute from existing labels
+    wdGet=function(lang){
+
+    };
+    //Returns a label for a wikidata id and language code
+    wdLabel=function(q,lang){
+      $.ajax({
+        dataType: "json",
+        url: "http://www.wikidata.org/w/api.php?action=wbgetentities&sites=enwiki&ids="+q+"&languages="+lang+"&props=labels&format=json&callback=?" ,
+      }).done(function ( data) {
+        for(var q in data.entities);
+          return data.entities[q].labels[lang].value;
+      });
+
+    };
+    
+//Change map language
+wd= function(props,lang){
+   
+  $("text[wiki], #map-overlay [wiki]").each(function(){
+    q=this.getAttribute("wiki");
+    $.ajax({
+      dataType: "json",
+      url: "http://www.wikidata.org/w/api.php?action=wbgetentities&ids="+q+"&languages="+lang+"&props="+props+"&format=json&callback=?" ,
+    }).done(function ( data) {
+      for (var q in data.entities)
+        label=data.entities[q].labels[lang].value;
+    //if(props=="labels")
+    $("svg text[wiki='"+q+"']")[0].textContent=label;
+    //console.log(label);
+    //console.log($("#map-overlay [wiki]"));
+
+  });
+  });
+   
+};
+    //focus state
+    clickState=function(d){
+      $("table tbody tr").slideUp();
+      var stateName=$("text[wiki='"+wikidata(d)+"']")[0].textContent;
+      $("tbody tr a:contains('"+stateName+"')").parent().parent().slideDown();
+      d3.selectAll("svg text").classed("focus",false);
+      d3.selectAll("svg path").classed("focus",false);
+      d3.selectAll("[wiki='"+wikidata(d)+"']").classed("focus",true);
+      document.myform.State.value= stateName;
+          };
+     
+     
+//create state paths
+svg.selectAll(".subunit")
+.data(topojson.feature(india, india.objects.indiamap).features)
+.enter().append("path")
+.attr("wiki", function(d) { return wikidata(d); })
+.attr("d", path)
+  //-interactions
+  //-click path navigator
+  .on("click", clickState)
+  .on("mouseover", function(d,i){
+    d3.selectAll("path").classed("active",false);
+    d3.selectAll("text[wiki='"+wikidata(d)+"']").classed("active",true);
+    d3.select("text[wiki='"+wikidata(d)+"']").transition().styleTween("font-size", function() { return d3.interpolate("100%", "150%"); });
+  })
+  .on("mouseout", function(d,i){
+    d3.selectAll("text").classed("active",false);
+    d3.select("text[wiki='"+wikidata(d)+"']").transition().styleTween("font-size", function() { return d3.interpolate("150%", "100%"); });
+  });
+   
+//text labels: create for all states
+svg.selectAll("text")
+.data(topojson.feature(india, india.objects.indiamap).features)
+.enter()
+.append("text")
+.attr("transform", function(d) { return "translate(" + path.centroid(d) + ")"; })
+.attr("class", function(d) { return d.properties.ENGTYPE_1})
+.attr("wiki", function(d) { return wikidata(d);})
+.text(function(d) { 
+})
+  //-interactions
+  //-click text map navigator
+  .on("click", clickState)
+  //-highlight corresponding state path
+  .on("mouseover", function(d,i){
+   d3.selectAll("text").classed("active",false);
+   d3.selectAll("path[wiki='"+wikidata(d)+"']").classed("active",true);
+ })
+  //-dim all state paths
+  .on("mouseout", function(d,i){
+    d3.selectAll("path[wiki='"+wikidata(d)+"']").classed("active",false);
+  });
+
+  wd("labels","en");
+//Legend teaser
+$('.subheader span').hover(
+  function(){$('svg .'+$(this).attr('class')).attr('class','active')},
+  function(){$('svg .active').removeAttr('class','active')}
+  );
+});
+
+
+
+</script>
+<small>Powered by d3 and wikidata <a href="https://github.com/4thmain/4thmain.github.io/tree/master/projects/hacks">(source)</a></small>
+
+        </div>
+        <!-- END MAP -->
+      </div>
+      <!-- /.container -->
+    </section>
+    <hr>
+    <!--******************** Testimonials Section ********************-->
+    <section id="testimonials" class="single-page hidden-phone">
+      <div class="container">
+        <div class="row">
+          <div class="blockquote-wrapper">
+            <blockquote class="mega">
+              <div class="span4">
+                <p class="cite">NIC &amp; IIC, DU:</p>
+              </div>
+              <div class="span8">
+                <p class="alignright">"We highly appreciate the enthusiasm and creative talent of the people at NIC, IIC!"</p>
+              </div>
+            </blockquote>
+          </div>
+          <!-- /.blockquote-wrapper -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+    </section>
+    <hr>
+    <!--******************** News Section ********************-->
+    <section id="news" class="single-page scrollblock">
+      <div class="container">
+        <div class="align"><i class="icon-pencil-circled"></i></div>
+        <h1>Visualization</h1>
+        </div>
+      <!-- /.container -->
+    </section>
+    <hr>
+    <!--******************** Team Section ********************-->
+    <section id="team" class="single-page scrollblock">
+      <div class="container">
+        <div class="align"><i class="icon-group-circled"></i></div>
+        <h1>Meet the team</h1>
+        <!-- Five columns -->
+        <div class="span13">
+
+          <div class="span2">
+            <div class="teamalign"> <img class="team-thumb img-circle" src="img/portrait-1.jpg" alt=""> </div>
+            <h3>Sharad Mishra</h3>
+           
+          </div>
+          <!-- ./span2 -->
+          <div class="span2">
+            <div class="teamalign"> <img class="team-thumb img-circle" src="img/portrait-2.jpg" alt=""> </div>
+            <h3>Mukesh Rawat</h3>
+           
+          </div>
+          <!-- ./span2 -->
+          <div class="span2">
+            <div class="teamalign"> <img class="team-thumb img-circle" src="img/portrait-3.jpg" alt=""> </div>
+            <h3>Ojasvi Maleyvar</h3>
+           
+          </div>
+          <!-- ./span2 -->
+          <div class="span2">
+            <div class="teamalign"> <img class="team-thumb img-circle" src="img/portrait-4.jpg" alt=""> </div>
+            <h3>Prashant Vashist</h3>
+            
+          </div>
+          <!-- ./span2 -->
+          <div class="span2">
+            <div class="teamalign"> <img class="team-thumb img-circle" src="img/portrait-2.jpg" alt=""> </div>
+            <h3>Anil Singh Bafila</h3>
+           
+          </div>
+          <!-- ./span2 -->
+        </div>
+        <!-- /.row -->
+        <div class="row">
+          <div>
+            <hr class="featurette-divider">
+            <div class="featurette">
+              <h2 class="featurette-heading">Want to know more? <span class="muted">| a little about us</span></h2>
+              <p>We are the team working on the Agricultural Information System.</p>
+              <p>We have worked in tandem with IIC, Delhi University & NIC to produce an application which will benefit the agricultural industry of India as a whole. </p>
+              <p>We welcome feedbacks and suggestions. Please get to us using the "Contact Us" section below.</p>
+            </div>
+            <!-- /.featurette -->
+            <hr class="featurette-divider">
+          </div>
+          <!-- .span10 -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+    </section>
+    <!--******************** Contact Section ********************-->
+    <section id="contact" class="single-page scrollblock">
+      <div class="container">
+        <div class="align"><i class="icon-mail-2"></i></div>
+        <h1>Contact us!</h1>
+        <div class="row">
+          <div>
+            <div class="cform" id="theme-form">
+              <form action="#" method="post" class="cform-form">
+                <div class="row">
+                  <div> <span class="your-name">
+                    <input type="text" name="your-name" placeholder="Your Name" class="cform-text" size="40" title="your name">
+                    </span> </div>
+                  <div> <span class="your-email">
+                    <input type="text" name="your-email" placeholder="Your Email" class="cform-text" size="40" title="your email">
+                    </span> </div>
+                </div>
+                 <div class="row">
+                  <div> <span class="message">
+                    <textarea name="message" placeholder="Your feedback" class="cform-textarea" cols="40" rows="10" title="drop us a line."></textarea>
+                    </span> </div>
+                </div>
+                <div>
+                 <input type="submit" value="Send message" class="cform-submit pull-left">
+                </div>
+                <div class="cform-response-output"></div>
+              </form>
+            </div>
+          </div>
+          <!-- ./span12 -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+    </section>
+    <hr>
+    <div class="footer-wrapper">
+      <div class="container">
+        <footer>
+          <small>&copy; 2013 Inbetwin Network. All rights reserved.</small>
+        </footer>
+      </div>
+      <!-- ./container -->
+    </div>
+    <!-- Loading the javaScript at the end of the page -->
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
+    <script type="text/javascript" src="js/site.js"></script>
+    
+    </body>
+    </html>
