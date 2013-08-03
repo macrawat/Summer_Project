@@ -2,7 +2,7 @@
 $date="25/07/2013";//date("d/m/Y");
 //connect to data-base
 
-$con=mysqli_connect("localhost","root","","state_crop");
+$con=mysqli_connect("localhost","","","");
 // Check connection
 if (mysqli_connect_errno())
   {

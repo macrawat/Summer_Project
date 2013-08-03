@@ -1,5 +1,5 @@
 <?php
-$con=mysqli_connect("localhost","Mavericks","barfi","Mavericks");
+$con=mysqli_connect("localhost","","","");
 if (mysqli_connect_errno())
 	{
 	echo "Failed to connect to MYSQL: " . mysqli_connect_error();

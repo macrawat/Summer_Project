@@ -22,7 +22,7 @@ require 'season.php';
 //checked
 
 //connect to database
-$con=mysqli_connect("localhost","Mavericks","barfi","mavericks");
+$con=mysqli_connect("localhost","","","");
 if (mysqli_connect_errno())
 	{
 	echo "Failed to connect to MYSQL: " . mysqli_connect_error();
